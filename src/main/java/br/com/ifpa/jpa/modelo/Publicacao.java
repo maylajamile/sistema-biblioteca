@@ -12,7 +12,7 @@ import javax.persistence.OneToMany;
 public class Publicacao {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private Integer codigoPub;
 	private String titulo;
@@ -26,7 +26,6 @@ public class Publicacao {
 	public Publicacao() {}
 
 	public Publicacao(Integer codigoPub, String titulo, Integer ano, String autor, String tipo) {
-		this.setId(id);
 		this.setCodigoPub(codigoPub);
 		this.setTitulo(titulo);
 		this.setAno(ano);

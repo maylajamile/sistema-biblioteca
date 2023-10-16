@@ -15,7 +15,7 @@ public class Emprestimo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	private Date dataDevolução;
+	private Date dataDevolucao;
 	private Date dataEmprestimo;
 
 	@ManyToOne
@@ -28,9 +28,8 @@ public class Emprestimo {
 
 	public Emprestimo() {}
 
-	public Emprestimo(Date dataEmprestimo, Date dataDevolução, Aluno aluno, Publicacao publicacao) {
-		this.setId(id);
-		this.setDataDevolução(dataDevolução);
+	public Emprestimo(Date dataEmprestimo, Date dataDevolucao, Aluno aluno, Publicacao publicacao) {
+		this.setDataDevolucao(dataDevolucao);
 		this.setDataEmprestimo(dataEmprestimo);
 		this.setAluno(aluno);
 		this.setPublicacao(publicacao);
@@ -44,12 +43,12 @@ public class Emprestimo {
 		this.id = id;
 	}
 
-	public Date getDataDevolução() {
-		return dataDevolução;
+	public Date getDataDevolucao() {
+		return dataDevolucao;
 	}
 
-	public void setDataDevolução(Date dataDevolução) {
-		this.dataDevolução = dataDevolução;
+	public void setDataDevolucao(Date dataDevolucao) {
+		this.dataDevolucao = dataDevolucao;
 	}
 
 	public Date getDataEmprestimo() {

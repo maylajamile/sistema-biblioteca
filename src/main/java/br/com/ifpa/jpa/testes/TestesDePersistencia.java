@@ -17,22 +17,25 @@ public class TestesDePersistencia {
 		EntityManager entityManager = JPAUtil.getEntityManager();
 		EmprestimoDAO emprestimoDAO = new EmprestimoDAO(entityManager);
 
-		popularBancoDeDados(entityManager, emprestimoDAO);
-		listarResultados(emprestimoDAO);
-		removerInsercoes(entityManager, emprestimoDAO);
+	    try {
+	        popularBancoDeDados(entityManager, emprestimoDAO);
+	        System.out.println("--------------------------------------------------------");
+	        System.out.println("LISTAGEM ANTES DE MODIFICAÇÕES:");
+	        listarResultados(emprestimoDAO);
 
-		// Lista apenas os emprestimos restantes (2 e 3)
-		listarResultados(emprestimoDAO);
-		editarDados(entityManager, emprestimoDAO);
+	        removerInsercoes(entityManager, emprestimoDAO);
+	        editarDados(entityManager, emprestimoDAO);
 
-		// Lista aṕos edição de dados no emprestimo 2
-		listarResultados(emprestimoDAO);
-
-		entityManager.close();
-	}
+	        System.out.println("--------------------------------------------------------");
+	        System.out.println("LISTAGEM DEPOIS DE MODIFICAÇÕES:");
+	        listarResultados(emprestimoDAO);
+	    } finally {
+	        entityManager.close();
+	    }	
+	 }
 
 	private static void popularBancoDeDados(EntityManager entityManager, EmprestimoDAO emprestimoDAO) {
-		JPAUtil.executeSqlScript("src/main/resources/data.sql");
+		JPAUtil.executeSqlScript("src/main/resources/insert_data.sql");
 		Aluno aluno = entityManager.find(Aluno.class, Long.valueOf(1));
 		Aluno aluno2 = entityManager.find(Aluno.class, Long.valueOf(2));
 		Aluno aluno3 = entityManager.find(Aluno.class, Long.valueOf(3));
@@ -60,7 +63,7 @@ public class TestesDePersistencia {
 			System.out.println("--------------------------------------------------------");
 			System.out.println("ID: " + emprestimo.getId());
 			System.out.println("Data de Empréstimo: " + emprestimo.getDataEmprestimo());
-			System.out.println("Data de Devolução: " + emprestimo.getDataDevolução());
+			System.out.println("Data de Devolução: " + emprestimo.getDataDevolucao());
 			System.out.println("Nome do Aluno: " + emprestimo.getAluno().getNome());
 			System.out.println("Código da Publicação: " + emprestimo.getPublicacao().getCodigoPub());
 		}
@@ -78,7 +81,7 @@ public class TestesDePersistencia {
 		Emprestimo emprestimo = entityManager.find(Emprestimo.class, Long.valueOf(2));
 		emprestimo.setAluno(aluno);
 		emprestimo.setPublicacao(publicacao);
-		emprestimo.setDataDevolução(new Date());
+		emprestimo.setDataDevolucao(new Date());
 		emprestimoDAO.update(emprestimo);
 	}
 }

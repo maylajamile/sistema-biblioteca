@@ -12,7 +12,7 @@ import javax.persistence.OneToMany;
 public class Aluno {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private Integer matricula;
 	private String nome;
@@ -22,7 +22,6 @@ public class Aluno {
 	public Aluno() {}
 
 	public Aluno(Integer matricula, String nome) {
-		this.setId(id);
 		this.setMatricula(matricula);
 		this.setNome(nome);
 	}

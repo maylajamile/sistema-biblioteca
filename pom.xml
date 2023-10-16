@@ -11,7 +11,6 @@
 	<packaging>jar</packaging>
 
 	<name>SistemaBiblioteca</name>
-	<url>http://www.example.com</url>
 
 	<properties>
 		<maven.compiler.source>11</maven.compiler.source>
