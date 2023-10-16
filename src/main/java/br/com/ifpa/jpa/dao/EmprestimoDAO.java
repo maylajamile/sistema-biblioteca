@@ -14,16 +14,16 @@ public class EmprestimoDAO {
 	public EmprestimoDAO(EntityManager entityManager) {
 		this.entityManager = entityManager;
 	}
-	
+
 	public Emprestimo findById(Long id) {
 		return entityManager.find(Emprestimo.class, id);
 	}
-	
-	public List<Emprestimo> findAll(){
+
+	public List<Emprestimo> findAll() {
 		String jpql = "SELECT e FROM Emprestimo e";
 		return entityManager.createQuery(jpql, Emprestimo.class).getResultList();
 	}
-	
+
 	public void insert(Emprestimo emprestimo) {
 		EntityTransaction transaction = entityManager.getTransaction();
 		transaction.begin();
@@ -46,5 +46,4 @@ public class EmprestimoDAO {
 		transaction.commit();
 	}
 
-	
 }

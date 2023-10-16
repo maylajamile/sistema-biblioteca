@@ -1,26 +1,9 @@
-CREATE DATABASE biblioteca;
+INSERT INTO aluno(id, matricula, nome) VALUES (1, 2023010101,'JOAO MENDES');
+INSERT INTO aluno(id, matricula, nome) VALUES (2, 2023020202,'ALBERTO SA');
+INSERT INTO aluno(id, matricula, nome) VALUES (3, 2023030303,'JOANA DARC');
 
-CREATE TABLE aluno (
-    id BIGINT IDENTITY NOT NULL PRIMARY KEY,
-    matricula INT NOT NULL,
-    nome VARCHAR(255) NOT NULL
-);
+INSERT INTO publicacao(id, codigoPub, titulo, ano, autor, tipo) VALUES (1, 1001,'Desbravando SOLID', '2022', 'Alexandre Aquiles', 'Programação');
+INSERT INTO publicacao(id, codigoPub, titulo, ano, autor, tipo) VALUES (2, 1002,'Estruturas de Dados', '2023', 'Thiago Leite e Carvalho', 'Programação');
+INSERT INTO publicacao(id, codigoPub, titulo, ano, autor, tipo) VALUES (3, 1003,'Teoria dos Grafos', '2020', 'João Paulo Maida', 'Programação');
 
-CREATE TABLE publicacao (
-    id BIGINT IDENTITY NOT NULL PRIMARY KEY,
-    codigoPub INT NOT NULL,
-    titulo VARCHAR(255) NOT NULL,
-    ano INT NOT NULL,
-    autor VARCHAR(255) NOT NULL,
-    tipo VARCHAR(255) NOT NULL
-);
 
-CREATE TABLE emprestimo (
-    id BIGINT IDENTITY NOT NULL PRIMARY KEY,
-    dataDevolucao DATE NOT NULL,
-    dataEmprestimo DATE NOT NUL,
-    aluno_id BIGINT,
-    publicacao_id BIGINT,
-    FOREIGN KEY (aluno_id) REFERENCES aluno(id),
-    FOREIGN KEY (publicacao_id) REFERENCES publicacao(id)
-);

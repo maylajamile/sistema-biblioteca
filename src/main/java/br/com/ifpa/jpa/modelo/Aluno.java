@@ -10,7 +10,7 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Aluno {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -18,7 +18,9 @@ public class Aluno {
 	private String nome;
 	@OneToMany(mappedBy = "aluno")
 	private List<Emprestimo> emprestimos;
-	
+
+	public Aluno() {}
+
 	public Aluno(Integer matricula, String nome) {
 		this.setId(id);
 		this.setMatricula(matricula);
@@ -28,23 +30,23 @@ public class Aluno {
 	public Long getId() {
 		return id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public Integer getMatricula() {
 		return matricula;
 	}
-	
+
 	public void setMatricula(Integer matricula) {
 		this.matricula = matricula;
 	}
-	
+
 	public String getNome() {
 		return nome;
 	}
-	
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
@@ -56,5 +58,5 @@ public class Aluno {
 	public void setEmprestimos(List<Emprestimo> emprestimos) {
 		this.emprestimos = emprestimos;
 	}
-	
+
 }

@@ -17,15 +17,17 @@ public class Emprestimo {
 	private Long id;
 	private Date dataDevolução;
 	private Date dataEmprestimo;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "aluno_id")
 	private Aluno aluno;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "publicacao_id")
 	private Publicacao publicacao;
-	
+
+	public Emprestimo() {}
+
 	public Emprestimo(Date dataEmprestimo, Date dataDevolução, Aluno aluno, Publicacao publicacao) {
 		this.setId(id);
 		this.setDataDevolução(dataDevolução);
@@ -37,15 +39,15 @@ public class Emprestimo {
 	public Long getId() {
 		return id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public Date getDataDevolução() {
 		return dataDevolução;
 	}
-	
+
 	public void setDataDevolução(Date dataDevolução) {
 		this.dataDevolução = dataDevolução;
 	}
@@ -53,7 +55,7 @@ public class Emprestimo {
 	public Date getDataEmprestimo() {
 		return dataEmprestimo;
 	}
-	
+
 	public void setDataEmprestimo(Date dataEmprestimo) {
 		this.dataEmprestimo = dataEmprestimo;
 	}
@@ -73,5 +75,5 @@ public class Emprestimo {
 	public void setPublicacao(Publicacao publicacao) {
 		this.publicacao = publicacao;
 	}
-	
+
 }
