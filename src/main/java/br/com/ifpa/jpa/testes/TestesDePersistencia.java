@@ -30,7 +30,7 @@ public class TestesDePersistencia {
 	        System.out.println("LISTAGEM DEPOIS DE MODIFICAÇÕES:");
 	        listarResultados(emprestimoDAO);
 	    } catch (Exception e){
-	    	System.out.println("[Sistema Biblioteca] - Não foi possível persistir os dados no banco, verifique se as tabelas foram criadas.");
+	    	System.err.println("[Sistema Biblioteca] - Ocorreu um problema, verifique se o banco e as tabelas foram criadas corretamente ou se os dados já foram inseridos no banco!");
 	    } finally {
 	        entityManager.close();
 	    }	
