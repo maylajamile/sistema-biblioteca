@@ -29,13 +29,14 @@ public class TestesDePersistencia {
 	        System.out.println("--------------------------------------------------------");
 	        System.out.println("LISTAGEM DEPOIS DE MODIFICAÇÕES:");
 	        listarResultados(emprestimoDAO);
+	    } catch (Exception e){
+	    	System.out.println("[Sistema Biblioteca] - Não foi possível persistir os dados no banco, verifique se as tabelas foram criadas.");
 	    } finally {
 	        entityManager.close();
 	    }	
 	 }
 
 	private static void popularBancoDeDados(EntityManager entityManager, EmprestimoDAO emprestimoDAO) {
-		JPAUtil.executeSqlScript("src/main/resources/insert_data.sql");
 		Aluno aluno = entityManager.find(Aluno.class, Long.valueOf(1));
 		Aluno aluno2 = entityManager.find(Aluno.class, Long.valueOf(2));
 		Aluno aluno3 = entityManager.find(Aluno.class, Long.valueOf(3));

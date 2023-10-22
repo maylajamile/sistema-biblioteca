@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Emprestimo {
@@ -15,7 +17,9 @@ public class Emprestimo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date dataDevolucao;
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date dataEmprestimo;
 
 	@ManyToOne
